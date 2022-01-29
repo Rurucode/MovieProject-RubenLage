@@ -1,0 +1,14 @@
+.card {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.foto img {
+   width: 25vw; 
+}
+
+.datos {
+    width: 25vw;
+    height: 2vh;
+    margin-bottom: 2vh;
+}
