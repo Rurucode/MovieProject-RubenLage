@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { contextMovieList } from "../../../../context/contextMovieList";
 
 // https://image.tmdb.org/t/p/w500 para las imagenes.
-// Detalle pelicula basado en ID: https://api.themoviedb.org/3/movie/530915?api_key=c1912eaa7342a465d75c91fd3f988479&language=es&append_to_response=videos
+// Detalle pelicula basado en ID: https://api.themoviedb.org/3/movie/530915?api_key=&language=es&append_to_response=videos
 
 const Search = () => {
 
@@ -11,30 +11,26 @@ const Search = () => {
   const {movieList, setMovieList} = useContext(contextMovieList);
   const [search, setSearch] = useState("");
 
+  const numbers = process.env.REACT_APP_TMDBAPIKEY;
   
 
-  // useEffect(() => {
-  //   const searchFilms = async () => {
-  //     try {
-  //       const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c1912eaa7342a465d75c91fd3f988479&query=1917&language=es`)
-  //       const data = response.data.results[0];
-  //       console.log(data);
-  //       setMovieList(data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   searchFilms();
-  // }, [])
+  
 
   // Funcion para buscar peliculas
   const searchFilms = async (film) => {
     try {
-      const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=&query=${film}&language=es`)
+      const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${numbers}&query=${film}&language=es`)
       const data = response.data.results[0];
+      const myData = {
+        "title": data.title,
+        "poster":  data.poster_path,
+        "overview": data.overview,
+        "rating" : 0,
+        "id": data.id
+      }
       console.log(data);
-      setSearch(data)
-      setMovieList([...movieList, data]);
+      setSearch(myData)
+      setMovieList([...movieList, myData]);
     } catch (error) {
       console.log(error);
     }
