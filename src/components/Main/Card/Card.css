@@ -2,13 +2,19 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
+
+.foto {
+    width: 15vw; 
+}
+
 .foto img {
-   width: 25vw; 
+    width: 15vw; 
 }
 
 .datos {
     width: 25vw;
-    height: 2vh;
-    margin-bottom: 2vh;
+    height: 40px;
+    margin-bottom: 20px;
 }

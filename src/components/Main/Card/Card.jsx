@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import './Card.css';
 import RatingStars from "./RatingStars/RatingStars";
+import { contextMovieList } from "../../../context/contextMovieList";
+import { Link } from "react-router-dom";
+// import RatingStars from "./RatingStars/RatingStars";
 
 
 
 const Card = (props) => {
-  
+  const {movieList, setMovieList} = useContext(contextMovieList);
   const data = props.data; // Destructuring.
+
+  const changeRating = (newRating) => {
+    let newArray = [...movieList];
+    newArray[props.indice].rating = newRating;
+    setMovieList(newArray);
+  }
+
+
+  
 
   return <div className="card">
     <div className="datos">
@@ -14,9 +26,9 @@ const Card = (props) => {
       {/* <p className="title">Sinopsis: {data.overview}.</p> */}
     </div>
     <div className="foto">
-      <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Pokemon imagen" />
+    <Link to={`/movie/?movieid=${data.id}`}><img src={`https://image.tmdb.org/t/p/w500${data.poster}`} alt="Imagen de la Pelicula" /></Link>
     </div>
-    
+    <RatingStars changeRating={changeRating} rating={data.rating}/>
   </div>;
   
 };
