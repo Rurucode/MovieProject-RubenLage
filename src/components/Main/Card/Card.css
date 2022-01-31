@@ -1,30 +1,10 @@
-/* .card {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.foto {
-    width: 15vw; 
-}
-
-.foto img {
-    width: 15vw; 
-}
-
-.datos {
-    width: 25vw;
-    height: 40px;
-    margin-bottom: 20px;
-} */
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Source+Sans+Pro:wght@300;700&display=swap');
 
 
 .card {
     width: 15vw;
     min-width: 240px;
-    margin: 0 1rem 0 1rem;
+    margin: 2rem 1rem 0 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,13 +14,16 @@
 .datos {
     width: 25vw;
     /* height: 40px; */
-    margin-bottom: 20px;
 }
+
+
 
 .foto {
     transition: 0.5s;
     min-width: 240px;
-    width: 100%
+    width: 100%;
+    margin-bottom: 20px;
+
 }
 
 .foto:hover {
@@ -53,4 +36,17 @@
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0px 0px 27px -5px rgba(0,0,0,0.75);
+}
+
+
+.popRating {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    /* width: 50px */
+}
+
+.popCorn{
+    width: 15%;
+    margin-right: 10px;
 }

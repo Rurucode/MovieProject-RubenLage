@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = (props) => {
+
+   // --------*********----------
+   
   return <div className="homeDiv">
+
+    <Link className="buttonMisPeliculas" to="/mylist">Mis Películas &#9733; &#9733; &#9733;&#9733; &#9733;</Link>
     <Search/>
     <List pintar={props.pintar}/>
-    <li><Link to="/mylist">myList</Link></li>
+    <div className="empty"></div>
+
   </div>;
 };
 

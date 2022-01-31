@@ -58,11 +58,16 @@ const Main = () => {
       console.log(error);
     }
   }
-
+  // Al cargar el componentes ejecuto serachFilms
   useEffect(() => {
     const preload = async () => await searchFilms()
     preload();
   }, []);
+
+  if(movieList.length === 0) {
+    const preload = async () => await searchFilms()
+    preload();
+  }
   
   // -----------************---------------
 

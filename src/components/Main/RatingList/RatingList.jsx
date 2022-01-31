@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import Card from "../Card/Card";
 import { contextMovieList } from "../../../context/contextMovieList";
 import {Link} from "react-router-dom";
+import "./RatingList.css"
 
 
 const RatingList = (props) => {
@@ -14,9 +15,15 @@ const RatingList = (props) => {
     
   })
   }
-  return <div>
-    {pintarRating()}
-    <Link to="/">Volver</Link>
+
+  // --------*********----------
+  
+  return <div className="ratingListDiv">
+    <Link to="/" className="buttonMisPeliculas" >Volver</Link>
+    <div className="ratingCards">
+      {pintarRating()}
+    </div>
+    <div className="empty"></div>
   </div>;
 };
 
