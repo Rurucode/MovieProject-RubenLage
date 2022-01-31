@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import {BrowserRouter} from 'react-router-dom';
 import { useState } from 'react';
 import {contextMovieList} from './context/contextMovieList';
+import Head from './components/Head/Head';
 
 
  
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <contextMovieList.Provider value={{movieList, setMovieList}}>
+              <Head/>
               <Main /> 
         </contextMovieList.Provider>
         <Footer/>

@@ -45,10 +45,11 @@ const Search = () => {
     searchFilms(searchFilm);
     event.target.searchFilm.value = "";
   }
-
+  
+   // --------*********----------
   return <div className="searchDiv">
     <form onSubmit={handleSearch} className="search">
-      <label htmlFor="searchFilm">Busca una película</label>
+      <label htmlFor="searchFilm"></label>
       <input className="searchTerm" type="text" name="searchFilm" placeholder="Busca una pelicula"/>
       <button className="searchButton">Buscar</button>
     </form>

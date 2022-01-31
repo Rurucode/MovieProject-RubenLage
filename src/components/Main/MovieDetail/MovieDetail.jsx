@@ -5,9 +5,11 @@ import "./MovieDetail.css"
 
 
 const MovieDetail = () => {
+  //Hooks para pintar las Películas valoradas.
   const [searchParams] = useSearchParams();
   const [movieDetails, setMovieDetails] = useState([]);
 
+  // Al cargar el componente hago fetch a la API de detalles de cada película. Es diferente a la url original.
   useEffect(()=> {
     const movieDetails = async (id) => {
       try {
@@ -35,6 +37,8 @@ const MovieDetail = () => {
     movieDetails(searchParams.get("movieid"));
   }, [])
 
+   // --------*********----------
+   
   return <div className="movieDetailDiv">
     <div className="cardFotoDetail">
       <img className="fotoDetail" src={`https://image.tmdb.org/t/p/w500${movieDetails.poster}`} alt="Imagen de la Pelicula" />
