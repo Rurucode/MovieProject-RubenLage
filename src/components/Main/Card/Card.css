@@ -1,4 +1,4 @@
-.card {
+/* .card {
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -17,4 +17,40 @@
     width: 25vw;
     height: 40px;
     margin-bottom: 20px;
+} */
+
+
+
+.card {
+    width: 15vw;
+    min-width: 240px;
+    margin: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.datos {
+    width: 25vw;
+    /* height: 40px; */
+    margin-bottom: 20px;
+}
+
+.foto {
+    transition: 0.5s;
+    min-width: 240px;
+    width: 100%
+}
+
+.foto:hover {
+    transform: scale(1.05);
+}
+
+.foto img {
+    width: 15em;
+    height: 25em;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 0px 27px -5px rgba(0,0,0,0.75);
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Link, useSearchParams} from "react-router-dom";
+import "./MovieDetail.css"
 
 
 const MovieDetail = () => {
@@ -34,10 +35,21 @@ const MovieDetail = () => {
     movieDetails(searchParams.get("movieid"));
   }, [])
 
-  return <div>
-    <h1>{movieDetails.revenue}</h1>
-    <h1>{movieDetails.title}</h1>
-    <Link to="/">Volver</Link>
+  return <div className="movieDetailDiv">
+    <div className="cardFotoDetail">
+      <img className="fotoDetail" src={`https://image.tmdb.org/t/p/w500${movieDetails.poster}`} alt="Imagen de la Pelicula" />
+    </div>
+    <div className="details">
+      <h3>Título: </h3><p> {movieDetails.title}</p>
+      <h3>Sinopsis:</h3><p> {movieDetails.overview}</p>
+      <h3>Mi rating:</h3><p> {movieDetails.rating} Estrellas.</p>
+      <h3>Ingresos:</h3><p> {movieDetails.revenue}$</p>
+      <h3>Duración:</h3><p> {movieDetails.runtime} minutos</p>
+      <Link to="/" className="buttonVolver">Volver</Link>
+    </div>
+
+    
+
   </div>;
 };
 
