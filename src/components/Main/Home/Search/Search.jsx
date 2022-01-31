@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { contextMovieList } from "../../../../context/contextMovieList";
+import './Search.css'
 
 // https://image.tmdb.org/t/p/w500 para las imagenes.
 // Detalle pelicula basado en ID: https://api.themoviedb.org/3/movie/530915?api_key=&language=es&append_to_response=videos
@@ -9,7 +10,7 @@ const Search = () => {
 
   //Hook traido desde App.js y Hook de busqueda.
   const {movieList, setMovieList} = useContext(contextMovieList);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   const numbers = process.env.REACT_APP_TMDBAPIKEY;
   
@@ -29,8 +30,8 @@ const Search = () => {
         "id": data.id
       }
       console.log(data);
-      setSearch(myData)
-      setMovieList([...movieList, myData]);
+      // setSearch(myData)
+      setMovieList([myData, ...movieList]);
     } catch (error) {
       console.log(error);
     }
@@ -40,16 +41,16 @@ const Search = () => {
   const handleSearch = async (event) => {
     event.preventDefault();
     const searchFilm = event.target.searchFilm.value;
-    setSearch(searchFilm);
+    // setSearch(searchFilm);
     searchFilms(searchFilm);
     event.target.searchFilm.value = "";
   }
 
-  return <div>
-    <form onSubmit={handleSearch}>
+  return <div className="searchDiv">
+    <form onSubmit={handleSearch} className="search">
       <label htmlFor="searchFilm">Busca una película</label>
-      <input type="text" name="searchFilm" placeholder="Busca una pelicula"/>
-      <button>Buscar</button>
+      <input className="searchTerm" type="text" name="searchFilm" placeholder="Busca una pelicula"/>
+      <button className="searchButton">Buscar</button>
     </form>
   </div>;
 };
